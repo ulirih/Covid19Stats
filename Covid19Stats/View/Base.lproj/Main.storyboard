@@ -35,17 +35,40 @@
                     <view key="view" contentMode="scaleToFill" id="nmS-6s-ZFX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="26q-MD-GHr">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOS-0Y-70W">
+                                <rect key="frame" x="20" y="104" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="1VM-HW-c4C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WOS-0Y-70W" firstAttribute="leading" secondItem="1VM-HW-c4C" secondAttribute="leading" constant="20" id="BbD-sQ-v4d"/>
+                            <constraint firstItem="26q-MD-GHr" firstAttribute="centerX" secondItem="nmS-6s-ZFX" secondAttribute="centerX" id="CKV-yi-qYs"/>
+                            <constraint firstItem="26q-MD-GHr" firstAttribute="centerY" secondItem="nmS-6s-ZFX" secondAttribute="centerY" id="R42-g8-zOL"/>
+                            <constraint firstItem="1VM-HW-c4C" firstAttribute="trailing" secondItem="WOS-0Y-70W" secondAttribute="trailing" constant="20" id="ewR-3j-cyx"/>
+                            <constraint firstItem="WOS-0Y-70W" firstAttribute="centerX" secondItem="nmS-6s-ZFX" secondAttribute="centerX" id="fSa-yf-xec"/>
+                            <constraint firstItem="WOS-0Y-70W" firstAttribute="top" secondItem="1VM-HW-c4C" secondAttribute="top" constant="60" id="hNc-ZF-G1O"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cases" id="iYM-8Y-tAm">
                         <imageReference key="image" image="globe" catalog="system" symbolScale="medium"/>
                         <imageReference key="selectedImage" image="globe" catalog="system" symbolScale="medium"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="26q-MD-GHr" id="XZd-DP-BbP"/>
+                        <outlet property="countryLabel" destination="WOS-0Y-70W" id="yid-Yy-T7H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neD-r1-nv6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="280" y="-133"/>
+            <point key="canvasLocation" x="279.71014492753625" y="-133.25892857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mg7-Fi-wZq">
