@@ -16,6 +16,9 @@ class CasesViewController: UIViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var casesDataStack: UIStackView!
+    @IBOutlet weak var casesLabel: UILabel!
+    @IBOutlet weak var deathsLabel: UILabel!
     
     private let service = CovidService()
     private var state: ScreenState = .loading {
@@ -33,7 +36,7 @@ class CasesViewController: UIViewController {
     
     func fetchData() {
         state = .loading
-        service.getCommonCases(countryCode: "md") { [weak self] result, error in
+        service.getCommonCases(countryCode: "fr") { [weak self] result, error in
             if error != nil {
                 print("RequetError: \(error!)")
             }
@@ -43,13 +46,15 @@ class CasesViewController: UIViewController {
             DispatchQueue.main.async {
                 self?.state = .completed
                 self?.countryLabel.text = data.country
-                print(data.country)
+                self?.casesLabel.text = data.confirmed.toGroupingSeparator()
+                self?.deathsLabel.text = data.deaths.toGroupingSeparator()
             }
         }
     }
     
     private func updateViews() {
         state == .loading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
-        countryLabel.isHidden = state == .loading
+        countryLabel.isHidden = state != .completed
+        casesDataStack.isHidden = state != .completed
     }
 }

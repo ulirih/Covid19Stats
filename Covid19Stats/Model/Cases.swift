@@ -29,3 +29,15 @@ struct Case: Decodable {
     var long: String
     var updated: String
 }
+
+extension UInt {
+    
+    func toGroupingSeparator() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.usesGroupingSeparator = true;
+        formatter.groupingSeparator = " "
+        
+        return formatter.string(for: self) ?? String(self);
+    }
+}
