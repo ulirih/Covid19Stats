@@ -22,6 +22,9 @@ class CasesViewController: UIViewController {
     @IBOutlet weak var casesPercentLabel: UILabel!
     @IBOutlet weak var deathsPercentLabel: UILabel!
     @IBOutlet weak var percentDataStack: UIStackView!
+    @IBOutlet weak var countryDataStack: UIStackView!
+    @IBOutlet weak var populationLabel: UILabel!
+    @IBOutlet weak var lifeLabel: UILabel!
     
     private let service = CovidService()
     private var state: ScreenState = .loading {
@@ -39,7 +42,7 @@ class CasesViewController: UIViewController {
     
     func fetchData() {
         state = .loading
-        service.getCommonCases(countryCode: "md") { [weak self] result, error in
+        service.getCommonCases(countryCode: "fr") { [weak self] result, error in
             if error != nil {
                 print("RequetError: \(error!)")
             }
@@ -53,6 +56,8 @@ class CasesViewController: UIViewController {
                 self?.deathsLabel.text = data.deaths.toGroupingSeparator()
                 self?.casesPercentLabel.text = data.confirmedPercent
                 self?.deathsPercentLabel.text = data.deathsPercent
+                self?.populationLabel.text = data.population.toGroupingSeparator()
+                self?.lifeLabel.text = data.life_expectancy
             }
         }
     }
@@ -63,5 +68,6 @@ class CasesViewController: UIViewController {
         countryLabel.isHidden = state != .completed
         casesDataStack.isHidden = state != .completed
         percentDataStack.isHidden = state != .completed
+        countryDataStack.isHidden = state != .completed
     }
 }

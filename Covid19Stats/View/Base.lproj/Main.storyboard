@@ -101,6 +101,45 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="z8R-U9-Ll6">
+                                <rect key="frame" x="20" y="354.5" width="374" height="46.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="A36-JF-GJQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="46.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLY-bM-P7q">
+                                                <rect key="frame" x="0.0" y="0.0" width="177" height="24.5"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="population" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jg3-rj-yuh">
+                                                <rect key="frame" x="0.0" y="24.5" width="177" height="22"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i1Z-aO-iRa">
+                                        <rect key="frame" x="197" y="0.0" width="177" height="46.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFq-gq-tYi">
+                                                <rect key="frame" x="0.0" y="0.0" width="177" height="24.5"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="life expectancy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFs-xs-PJi">
+                                                <rect key="frame" x="0.0" y="24.5" width="177" height="22"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1VM-HW-c4C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -112,11 +151,14 @@
                             <constraint firstItem="26q-MD-GHr" firstAttribute="centerX" secondItem="nmS-6s-ZFX" secondAttribute="centerX" id="CKV-yi-qYs"/>
                             <constraint firstItem="1VM-HW-c4C" firstAttribute="trailing" secondItem="9Cq-D4-mE0" secondAttribute="trailing" constant="20" id="MtL-KO-IeX"/>
                             <constraint firstItem="26q-MD-GHr" firstAttribute="centerY" secondItem="nmS-6s-ZFX" secondAttribute="centerY" id="R42-g8-zOL"/>
+                            <constraint firstItem="1VM-HW-c4C" firstAttribute="trailing" secondItem="z8R-U9-Ll6" secondAttribute="trailing" constant="20" id="c4o-KM-ejr"/>
                             <constraint firstItem="1VM-HW-c4C" firstAttribute="trailing" secondItem="WOS-0Y-70W" secondAttribute="trailing" constant="20" id="ewR-3j-cyx"/>
                             <constraint firstItem="WOS-0Y-70W" firstAttribute="centerX" secondItem="nmS-6s-ZFX" secondAttribute="centerX" id="fSa-yf-xec"/>
                             <constraint firstItem="WOS-0Y-70W" firstAttribute="top" secondItem="1VM-HW-c4C" secondAttribute="top" constant="60" id="hNc-ZF-G1O"/>
+                            <constraint firstItem="z8R-U9-Ll6" firstAttribute="top" secondItem="9Cq-D4-mE0" secondAttribute="bottom" constant="50" id="qUq-Rs-R8W"/>
                             <constraint firstItem="1VM-HW-c4C" firstAttribute="trailing" secondItem="nca-Zg-010" secondAttribute="trailing" constant="20" id="uKT-mr-Rbo"/>
                             <constraint firstItem="nca-Zg-010" firstAttribute="leading" secondItem="1VM-HW-c4C" secondAttribute="leading" constant="20" id="yge-pm-o1u"/>
+                            <constraint firstItem="z8R-U9-Ll6" firstAttribute="leading" secondItem="1VM-HW-c4C" secondAttribute="leading" constant="20" id="znX-dX-dc2"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cases" id="iYM-8Y-tAm">
@@ -128,10 +170,13 @@
                         <outlet property="casesDataStack" destination="nca-Zg-010" id="0ny-c8-Od4"/>
                         <outlet property="casesLabel" destination="QS6-dm-tCH" id="2Zi-lZ-vQb"/>
                         <outlet property="casesPercentLabel" destination="Jgk-Gp-Sk7" id="Ydu-aO-e3b"/>
+                        <outlet property="countryDataStack" destination="z8R-U9-Ll6" id="yQ1-5P-YYe"/>
                         <outlet property="countryLabel" destination="WOS-0Y-70W" id="yid-Yy-T7H"/>
                         <outlet property="deathsLabel" destination="GMg-Bt-s17" id="OYO-6T-kRb"/>
                         <outlet property="deathsPercentLabel" destination="KYR-4E-biJ" id="Jq2-iO-66A"/>
+                        <outlet property="lifeLabel" destination="PFq-gq-tYi" id="muk-HY-xbJ"/>
                         <outlet property="percentDataStack" destination="9Cq-D4-mE0" id="4hb-PI-7L8"/>
+                        <outlet property="populationLabel" destination="oLY-bM-P7q" id="GNy-BD-LNh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neD-r1-nv6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -165,6 +210,9 @@
         </systemColor>
         <systemColor name="systemFillColor">
             <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
