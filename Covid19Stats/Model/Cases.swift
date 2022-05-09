@@ -28,6 +28,20 @@ struct Case: Decodable {
     var lat: String
     var long: String
     var updated: String
+    
+    var confirmedPercent: String {
+        get {
+            let percent = Double(confirmed) / Double(population) * 100
+            return String(format: "%.2f", percent) + "%"
+        }
+    }
+    
+    var deathsPercent: String {
+        get {
+            let percent = Double(deaths) / Double(confirmed) * 100
+            return String(format: "%.2f", percent) + "%"
+        }
+    }
 }
 
 extension UInt {

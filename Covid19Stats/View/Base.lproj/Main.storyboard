@@ -84,13 +84,33 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9Cq-D4-mE0">
+                                <rect key="frame" x="20" y="280" width="374" height="24.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgk-Gp-Sk7">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="24.5"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                        <color key="textColor" red="0.070588235289999995" green="0.18823529410000001" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYR-4E-biJ">
+                                        <rect key="frame" x="197" y="0.0" width="177" height="24.5"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                        <color key="textColor" red="0.070588235289999995" green="0.18823529410000001" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1VM-HW-c4C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="9Cq-D4-mE0" firstAttribute="leading" secondItem="1VM-HW-c4C" secondAttribute="leading" constant="20" id="2es-cj-I8n"/>
+                            <constraint firstItem="9Cq-D4-mE0" firstAttribute="top" secondItem="nca-Zg-010" secondAttribute="bottom" constant="50" id="7pe-H3-vWk"/>
                             <constraint firstItem="nca-Zg-010" firstAttribute="top" secondItem="WOS-0Y-70W" secondAttribute="bottom" constant="50" id="8Rx-30-x4u"/>
                             <constraint firstItem="WOS-0Y-70W" firstAttribute="leading" secondItem="1VM-HW-c4C" secondAttribute="leading" constant="20" id="BbD-sQ-v4d"/>
                             <constraint firstItem="26q-MD-GHr" firstAttribute="centerX" secondItem="nmS-6s-ZFX" secondAttribute="centerX" id="CKV-yi-qYs"/>
+                            <constraint firstItem="1VM-HW-c4C" firstAttribute="trailing" secondItem="9Cq-D4-mE0" secondAttribute="trailing" constant="20" id="MtL-KO-IeX"/>
                             <constraint firstItem="26q-MD-GHr" firstAttribute="centerY" secondItem="nmS-6s-ZFX" secondAttribute="centerY" id="R42-g8-zOL"/>
                             <constraint firstItem="1VM-HW-c4C" firstAttribute="trailing" secondItem="WOS-0Y-70W" secondAttribute="trailing" constant="20" id="ewR-3j-cyx"/>
                             <constraint firstItem="WOS-0Y-70W" firstAttribute="centerX" secondItem="nmS-6s-ZFX" secondAttribute="centerX" id="fSa-yf-xec"/>
@@ -107,8 +127,11 @@
                         <outlet property="activityIndicator" destination="26q-MD-GHr" id="XZd-DP-BbP"/>
                         <outlet property="casesDataStack" destination="nca-Zg-010" id="0ny-c8-Od4"/>
                         <outlet property="casesLabel" destination="QS6-dm-tCH" id="2Zi-lZ-vQb"/>
+                        <outlet property="casesPercentLabel" destination="Jgk-Gp-Sk7" id="Ydu-aO-e3b"/>
                         <outlet property="countryLabel" destination="WOS-0Y-70W" id="yid-Yy-T7H"/>
                         <outlet property="deathsLabel" destination="GMg-Bt-s17" id="OYO-6T-kRb"/>
+                        <outlet property="deathsPercentLabel" destination="KYR-4E-biJ" id="Jq2-iO-66A"/>
+                        <outlet property="percentDataStack" destination="9Cq-D4-mE0" id="4hb-PI-7L8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neD-r1-nv6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
