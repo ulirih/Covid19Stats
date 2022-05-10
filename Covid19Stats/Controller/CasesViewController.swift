@@ -28,6 +28,7 @@ class CasesViewController: UIViewController {
     @IBOutlet weak var populationLabel: UILabel!
     @IBOutlet weak var lifeLabel: UILabel!
     @IBOutlet weak var countryCodeTextField: UITextField!
+    @IBOutlet weak var errorDataStack: UIStackView!
     
     private let service = CovidService()
     private let userDefaults = UserDefaults.standard
@@ -67,6 +68,7 @@ class CasesViewController: UIViewController {
         state = .loading
         service.getCommonCases(countryCode: country) { [weak self] result, error in
             if error != nil {
+                self?.state = .error
                 print("RequetError: \(error!)")
             }
             
@@ -85,6 +87,12 @@ class CasesViewController: UIViewController {
         }
     }
     
+    @IBAction func onTryAgainButtonPress(_ sender: UIButton) {
+        if let code = countryCodeTextField.text {
+            fetchData(country: code)
+        }
+    }
+    
     private func updateViews() {
         state == .loading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
         
@@ -92,6 +100,8 @@ class CasesViewController: UIViewController {
         casesDataStack.isHidden = state != .completed
         percentDataStack.isHidden = state != .completed
         countryDataStack.isHidden = state != .completed
+        
+        errorDataStack.isHidden = state != .error
     }
 }
 
