@@ -8,8 +8,10 @@
 import UIKit
 
 enum ScreenState {
+    case empty
     case loading
     case completed
+    case error
 }
 
 class CasesViewController: UIViewController {
@@ -25,9 +27,13 @@ class CasesViewController: UIViewController {
     @IBOutlet weak var countryDataStack: UIStackView!
     @IBOutlet weak var populationLabel: UILabel!
     @IBOutlet weak var lifeLabel: UILabel!
+    @IBOutlet weak var countryCodeTextField: UITextField!
     
     private let service = CovidService()
-    private var state: ScreenState = .loading {
+    private let userDefaults = UserDefaults.standard
+    private let countryCodeKey = "countryCode"
+    
+    private var state: ScreenState = .empty {
         didSet {
             updateViews()
         }
@@ -35,14 +41,31 @@ class CasesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        countryCodeTextField.delegate = self
         activityIndicator.hidesWhenStopped = true
-        fetchData()
+        
+        initData()
     }
     
-    func fetchData() {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        countryCodeTextField.resignFirstResponder()
+    }
+    
+    func initData() {
+        let countryCode = userDefaults.string(forKey: countryCodeKey)
+        
+        if let code = countryCode {
+            fetchData(country: code)
+            countryCodeTextField.text = code
+        } else {
+            state = .empty
+        }
+    }
+    
+    func fetchData(country: String) {
         state = .loading
-        service.getCommonCases(countryCode: "fr") { [weak self] result, error in
+        service.getCommonCases(countryCode: country) { [weak self] result, error in
             if error != nil {
                 print("RequetError: \(error!)")
             }
@@ -69,5 +92,18 @@ class CasesViewController: UIViewController {
         casesDataStack.isHidden = state != .completed
         percentDataStack.isHidden = state != .completed
         countryDataStack.isHidden = state != .completed
+    }
+}
+
+extension CasesViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text, text.count > 0 {
+            countryCodeTextField.resignFirstResponder()
+            userDefaults.set(text, forKey: countryCodeKey)
+            fetchData(country: text)
+        }
+        
+        return true
     }
 }
