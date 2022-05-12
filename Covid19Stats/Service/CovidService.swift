@@ -8,31 +8,44 @@
 import Foundation
 import UIKit
 
+enum CovidServiceError: Error {
+    case noDataError
+    case parseError
+}
+
 class CovidService {
     
     private let baseUrl = "https://covid-api.mmediagroup.fr/v1/"
-    
-    func getCommonCases(countryCode: String, completion: @escaping(_ result: Case?, _ error: String?) -> Void) {
+
+    func getCommonCases(countryCode: String, completion: @escaping(Result<Case, Error>) -> Void) {
+        
         let urlString = "\(baseUrl)cases?ab=\(countryCode)"
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { data, responce, error in
-            if error != nil {
-                completion(nil, error?.localizedDescription)
+            var result: Result<Case, Error>
+            defer {
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+            }
+            
+            if let error = error {
+                result = .failure(error)
                 return
             }
             
             guard let jsonData = data else {
-                completion(nil, "No data error")
+                result = .failure(CovidServiceError.noDataError)
                 return
             }
             
             do {
-                let result = try JSONDecoder().decode(Cases.self, from: jsonData)
-                completion(result.All, nil)
+                let cases = try JSONDecoder().decode(Cases.self, from: jsonData)
+                result = .success(cases.All)
                 
             } catch {
-                completion(nil, "Perse data error: \(url.absoluteURL)")
+                result = .failure(CovidServiceError.parseError)
             }
         }.resume()
     }

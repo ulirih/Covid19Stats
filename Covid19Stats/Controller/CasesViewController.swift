@@ -66,15 +66,14 @@ class CasesViewController: UIViewController {
     
     func fetchData(country: String) {
         state = .loading
-        service.getCommonCases(countryCode: country) { [weak self] result, error in
-            if error != nil {
+    
+        service.getCommonCases(countryCode: country) { [weak self] result in
+            
+            switch result {
+            case .failure(let error):
                 self?.state = .error
-                print("RequetError: \(error!)")
-            }
-            
-            guard let data = result else { return }
-            
-            DispatchQueue.main.async {
+                print("RequetError: \(error.localizedDescription)")
+            case .success(let data):
                 self?.state = .completed
                 self?.countryLabel.text = data.country
                 self?.casesLabel.text = data.confirmed.toGroupingSeparator()
