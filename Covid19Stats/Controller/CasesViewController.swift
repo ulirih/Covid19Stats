@@ -74,6 +74,7 @@ class CasesViewController: UIViewController {
                 self?.state = .error
                 print("RequetError: \(error.localizedDescription)")
             case .success(let result):
+                print(result.All)
                 let data = result.All
                 self?.state = .completed
                 self?.countryLabel.text = data.country

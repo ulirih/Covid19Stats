@@ -19,15 +19,11 @@ struct Case: Decodable {
     var population: UInt
     var sq_km_area: UInt
     var life_expectancy: String
-    var elevation_in_meters: UInt
     var continent: String
     var abbreviation: String
     var location: String
-    var iso: Int
     var capital_city: String
-    var lat: String
-    var long: String
-    var updated: String
+    var updated: String?
     
     var confirmedPercent: String {
         get {
