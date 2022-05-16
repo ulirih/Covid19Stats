@@ -30,6 +30,8 @@ class VaccinesViewController: UIViewController {
         super.viewDidLoad()
         
         activityIndicator.hidesWhenStopped = true
+        countryCodeTextField.delegate = self
+        
         initData()
     }
     
@@ -66,5 +68,18 @@ class VaccinesViewController: UIViewController {
         
         countryNameLabel.isHidden = state != .completed
         vaccineStackData.isHidden = state != .completed
+    }
+}
+
+extension VaccinesViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text, text.count > 0 {
+            countryCodeTextField.resignFirstResponder()
+            userDefaults.set(text, forKey: countryCodeKey)
+            fetchData(country: text)
+        }
+        
+        return true
     }
 }
