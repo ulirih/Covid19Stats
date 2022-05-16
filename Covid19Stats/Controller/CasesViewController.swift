@@ -73,7 +73,8 @@ class CasesViewController: UIViewController {
             case .failure(let error):
                 self?.state = .error
                 print("RequetError: \(error.localizedDescription)")
-            case .success(let data):
+            case .success(let result):
+                let data = result.All
                 self?.state = .completed
                 self?.countryLabel.text = data.country
                 self?.casesLabel.text = data.confirmed.toGroupingSeparator()

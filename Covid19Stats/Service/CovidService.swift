@@ -17,13 +17,25 @@ class CovidService {
     
     private let baseUrl = "https://covid-api.mmediagroup.fr/v1/"
 
-    func getCommonCases(countryCode: String, completion: @escaping(Result<Case, Error>) -> Void) {
+    func getCommonCases(countryCode: String, completion: @escaping(Result<Cases, Error>) -> Void) {
         
         let urlString = "\(baseUrl)cases?ab=\(countryCode)"
         guard let url = URL(string: urlString) else { return }
         
+        baseConutryRequest(url: url, completion: completion)
+    }
+    
+    func getVaccinesInfo(countryCode: String, completion: @escaping(Result<Vaccines, Error>) -> Void) {
+        
+        let urlString = "\(baseUrl)vaccines?ab=\(countryCode)"
+        guard let url = URL(string: urlString) else { return }
+        
+        baseConutryRequest(url: url, completion: completion)
+    }
+    
+    private func baseConutryRequest<T: Decodable>(url: URL, completion: @escaping(Result<T, Error>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, responce, error in
-            var result: Result<Case, Error>
+            var result: Result<T, Error>
             defer {
                 DispatchQueue.main.async {
                     completion(result)
@@ -41,8 +53,8 @@ class CovidService {
             }
             
             do {
-                let cases = try JSONDecoder().decode(Cases.self, from: jsonData)
-                result = .success(cases.All)
+                let _data = try JSONDecoder().decode(T.self, from: jsonData)
+                result = .success(_data)
                 
             } catch {
                 result = .failure(CovidServiceError.parseError)
