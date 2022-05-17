@@ -19,4 +19,11 @@ struct Vaccine: Decodable {
     var population: UInt
     var life_expectancy: String
     var updated: String
+    
+    var vaccinatedPerceent: String {
+        get {
+            let percent = Double(people_vaccinated) / Double(population) * 100
+            return String(format: "%.2f", percent) + "%"
+        }
+    }
 }

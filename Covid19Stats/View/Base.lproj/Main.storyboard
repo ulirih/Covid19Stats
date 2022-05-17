@@ -70,20 +70,40 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                             </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q2r-Vo-V02">
+                                <rect key="frame" x="20" y="313.66666666666669" width="350" height="46.333333333333314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRs-Qf-wNl">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="24.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                        <color key="textColor" systemColor="systemGreenColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="population" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FO-hb-H18">
+                                        <rect key="frame" x="0.0" y="24.333333333333314" width="350" height="22"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qVD-55-wYA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="U38-7f-gtB" firstAttribute="leading" secondItem="qVD-55-wYA" secondAttribute="leading" constant="20" id="5OB-e6-QTy"/>
                             <constraint firstItem="L3w-M4-TlB" firstAttribute="centerX" secondItem="xFk-hz-PbL" secondAttribute="centerX" id="BTM-c6-ioG"/>
+                            <constraint firstItem="qVD-55-wYA" firstAttribute="trailing" secondItem="q2r-Vo-V02" secondAttribute="trailing" constant="20" id="ImU-8u-K5P"/>
                             <constraint firstItem="0rh-Dg-JM7" firstAttribute="top" secondItem="qVD-55-wYA" secondAttribute="top" constant="10" id="KUl-2y-UiU"/>
                             <constraint firstItem="0rh-Dg-JM7" firstAttribute="leading" secondItem="qVD-55-wYA" secondAttribute="leading" constant="20" id="MIf-3r-9Bq"/>
                             <constraint firstItem="qVD-55-wYA" firstAttribute="trailing" secondItem="grr-GO-o0f" secondAttribute="trailing" constant="20" id="MNV-ci-zHI"/>
                             <constraint firstItem="U38-7f-gtB" firstAttribute="top" secondItem="0rh-Dg-JM7" secondAttribute="bottom" constant="50" id="VNl-b3-2y5"/>
+                            <constraint firstItem="q2r-Vo-V02" firstAttribute="top" secondItem="grr-GO-o0f" secondAttribute="bottom" constant="50" id="YZP-lr-sGl"/>
                             <constraint firstItem="qVD-55-wYA" firstAttribute="trailing" secondItem="0rh-Dg-JM7" secondAttribute="trailing" constant="20" id="cqV-VZ-jBG"/>
                             <constraint firstItem="L3w-M4-TlB" firstAttribute="centerY" secondItem="xFk-hz-PbL" secondAttribute="centerY" id="cyQ-LH-2B2"/>
                             <constraint firstItem="grr-GO-o0f" firstAttribute="top" secondItem="U38-7f-gtB" secondAttribute="bottom" constant="50" id="kOb-QO-tAf"/>
                             <constraint firstItem="grr-GO-o0f" firstAttribute="leading" secondItem="qVD-55-wYA" secondAttribute="leading" constant="20" id="pDb-Gd-baB"/>
+                            <constraint firstItem="q2r-Vo-V02" firstAttribute="leading" secondItem="qVD-55-wYA" secondAttribute="leading" constant="20" id="ptg-62-yqR"/>
                             <constraint firstItem="qVD-55-wYA" firstAttribute="trailing" secondItem="U38-7f-gtB" secondAttribute="trailing" constant="20" id="yJt-wn-qdv"/>
                         </constraints>
                     </view>
@@ -97,6 +117,8 @@
                         <outlet property="countryNameLabel" destination="U38-7f-gtB" id="Ko0-zT-34l"/>
                         <outlet property="peopleVaccinatedLabel" destination="FS2-QL-UbL" id="xOT-5g-k6Y"/>
                         <outlet property="percentVaccinatedLabel" destination="8LV-W4-WhQ" id="hUp-kQ-QLe"/>
+                        <outlet property="populationLabel" destination="QRs-Qf-wNl" id="f6S-q8-XBa"/>
+                        <outlet property="populationStackData" destination="q2r-Vo-V02" id="p75-w1-X45"/>
                         <outlet property="vaccineStackData" destination="grr-GO-o0f" id="Deb-FY-gN9"/>
                     </connections>
                 </viewController>

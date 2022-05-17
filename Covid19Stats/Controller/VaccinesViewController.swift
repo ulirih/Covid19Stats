@@ -15,6 +15,8 @@ class VaccinesViewController: UIViewController {
     @IBOutlet weak var vaccineStackData: UIStackView!
     @IBOutlet weak var peopleVaccinatedLabel: UILabel!
     @IBOutlet weak var percentVaccinatedLabel: UILabel!
+    @IBOutlet weak var populationLabel: UILabel!
+    @IBOutlet weak var populationStackData: UIStackView!
     
     private let userDefaults = UserDefaults.standard
     private let countryCodeKey = "countryCode"
@@ -51,6 +53,7 @@ class VaccinesViewController: UIViewController {
         service.getVaccinesInfo(countryCode: country) { [weak self] result in
             switch result {
             case .failure(let err):
+                self?.state = .error
                 print(err)
             case .success(let data):
                 let vacccine = data.All
@@ -58,7 +61,8 @@ class VaccinesViewController: UIViewController {
                 self?.state = .completed
                 self?.countryNameLabel.text = vacccine.country
                 self?.peopleVaccinatedLabel.text = vacccine.people_vaccinated.toGroupingSeparator()
-                self?.percentVaccinatedLabel.text = "0"
+                self?.percentVaccinatedLabel.text = vacccine.vaccinatedPerceent
+                self?.populationLabel.text = vacccine.population.toGroupingSeparator()
             }
         }
     }
@@ -68,6 +72,7 @@ class VaccinesViewController: UIViewController {
         
         countryNameLabel.isHidden = state != .completed
         vaccineStackData.isHidden = state != .completed
+        populationStackData.isHidden = state != .completed
     }
 }
 
